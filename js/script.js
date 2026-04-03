@@ -1,4 +1,10 @@
+const BASE_URL =
+  "https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies";
+
 const dropdowns = document.querySelectorAll("form select");
+const btn = document.querySelector(".btn");
+const input = document.querySelector(".amount input");
+const msg = document.querySelector(".msg");
 
 const fromCurrCode = "USD";
 const toCurrCode = "PKR";
@@ -30,3 +36,33 @@ for (let select of dropdowns) {
     setFlag(evt.target);
   });
 }
+
+input.addEventListener("change", (evt) => {
+  const amount = evt.target.value;
+  if (amount === "" || amount < 0) {
+    input.value = 1;
+  }
+});
+
+const updateMsg = async () => {
+  const amount = input.value;
+  const fromCurr = dropdowns[0].value.toLowerCase();
+  const toCurr = dropdowns[1].value.toLowerCase();
+
+  const URL = `${BASE_URL}/${fromCurr}.json`;
+  const response = await fetch(URL);
+  const data = await response.json();
+  const rate = data[fromCurr][toCurr];
+
+  const finalAmount = amount * rate;
+  msg.innerText = `${amount} ${fromCurr} = ${finalAmount} ${toCurr}`;
+};
+
+btn.addEventListener("click", (evt) => {
+  evt.preventDefault();
+  updateMsg();
+});
+
+window.addEventListener("load", () => {
+  updateMsg();
+});
