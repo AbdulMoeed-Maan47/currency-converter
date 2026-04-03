@@ -1,0 +1,94 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #f4e4ba;
+}
+
+.container {
+  background-color: #f4f4f4;
+  min-height: 55vh;
+  min-width: 30vw;
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
+.container h1 {
+  font-size: 1.5rem;
+}
+
+form {
+  margin-top: 1rem;
+}
+
+form input,
+select,
+button {
+  border: none;
+  outline: none;
+  width: 100%;
+  border-radius: 0.75rem;
+  background-color: inherit;
+}
+
+form input {
+  height: 3rem;
+  font-size: 1rem;
+  padding-left: 0.5rem;
+  border: 1px solid lightgray;
+}
+
+form .currency-container {
+  margin: 1.5rem 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+form .select-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid lightgray;
+  border-radius: 0.5rem;
+  padding: 0.25rem;
+}
+
+.select-container img {
+  width: 2.5rem;
+}
+
+.select-container select {
+  font-size: 1rem;
+  margin-left: 0.25rem;
+}
+
+form i {
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
+
+form .msg {
+  margin: 2rem 0;
+  text-align: center;
+  font-size: 1rem;
+}
+
+form .btn {
+  height: 3rem;
+  background-color: #af4d98;
+  color: #ffffff;
+  font-size: 1.15rem;
+  text-align: center;
+  cursor: pointer;
+}
